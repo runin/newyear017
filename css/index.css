@@ -227,10 +227,157 @@ html, body {
     overflow: hidden;
     position: relative;
     border: 1px solid red;
-    /*background: url(../img/appBg1.jpg);*/
+    background: url(../img/appBg1.jpg);
     transition: -webkit-transform 0.4s ease-out;
     transform: translateY(0px);
     transform-origin: center top 0px;
+
+    -webkit-perspective: 800px;
+    -webkit-perspective-origin: 50% 50%;
+}
+.fullpage .section .array {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    width: 7vw;
+    height: 7vw;
+    -webkit-animation: start 2s infinite ease-in-out;
+    animation: start 2s infinite ease-in-out;
+    z-index: 999;
+    display: block;
+    margin: 0 auto;
+}
+@-webkit-keyframes start {
+    0%,30% {
+        opacity: 0;
+        -webkit-transform: translate(0,10px)
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translate(0,0)
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0,-8px)
+    }
+}
+.fullpage .section.pl1 > .words{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 150px;
+    width: 80%;
+    margin: auto;
+    font-size: 24px;
+    line-height: 55px;
+    color: #fb0505;
+}
+.fullpage .section.pl2{
+    position: relative;
+}
+.fullpage .section.pl2 > img{
+    position: absolute;
+    top: 20%;
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 0 13px 0 #B8B8B8;
+    -webkit-box-shadow: 0 0 13px 0 #B8B8B8;
+
+    -webkit-transform-style: preserve-3d;
+}
+.fullpage .section.pl2 > img.rightShow{
+    -webkit-transform: rotateX(60deg) rotateY(-60deg) rotateZ(30deg) translate3d(80%, 0, 0px);
+
+    -webkit-animation: rightShow .8s ease-in-out forwards;
+    animation: rightShow .8s ease-in-out forwards;
+}
+.fullpage .section.pl2 > img.leftShow{
+    -webkit-transform: rotateX(60deg) rotateY(60deg) rotateZ(-30deg) translate3d(-80%, 0, 0px);
+
+    -webkit-animation: leftShow .8s ease-in-out forwards;
+    animation: leftShow .8s ease-in-out forwards;
+}
+@-webkit-keyframes rightShow{
+    0%{
+        -webkit-transform: rotateX(60deg) rotateY(-60deg) rotateZ(30deg) translate3d(80%, 0, 0px);
+    }
+    100%{
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(15deg) translate3d(0, 0, 0px);
+    }
+}
+@-webkit-keyframes leftShow{
+    0%{
+        -webkit-transform: rotateX(60deg) rotateY(60deg) rotateZ(-30deg) translate3d(-80%, 0, 0px);
+    }
+    100%{
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(-15deg) translate3d(0, 0, 0px);
+    }
+}
+.fullpage .section.pl2 > img:nth-child(3).rightShow{
+    -webkit-animation: rightShow3 .8s ease-in-out forwards;
+    animation: rightShow3 .8s ease-in-out forwards;
+}
+@-webkit-keyframes rightShow3{
+    0%{
+        -webkit-transform: rotateX(60deg) rotateY(-60deg) rotateZ(30deg) translate3d(80%, 0, 0px);
+    }
+    100%{
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(10deg) translate3d(0, 0, 0px);
+    }
+}
+.fullpage .section.pl2 > img:nth-child(4).leftShow{
+    -webkit-animation: leftShow4 .8s ease-in-out forwards;
+    animation: leftShow4 .8s ease-in-out forwards;
+}
+@-webkit-keyframes leftShow4{
+    0%{
+        -webkit-transform: rotateX(60deg) rotateY(60deg) rotateZ(-30deg) translate3d(-80%, 0, 0px);
+    }
+    100%{
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(-10deg) translate3d(0, 0, 0px);
+    }
+}
+.fullpage .section.pl2 > img:nth-child(5).rightShow{
+    -webkit-animation: rightShow5 .8s ease-in-out forwards;
+    animation: rightShow5 .8s ease-in-out forwards;
+}
+@-webkit-keyframes rightShow5{
+    0%{
+        -webkit-transform: rotateX(60deg) rotateY(-60deg) rotateZ(30deg) translate3d(80%, 0, 0px);
+    }
+    100%{
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(5deg) translate3d(0, 0, 0px);
+    }
+}
+.fullpage .section.pl2 > img:nth-child(6).leftShow{
+    -webkit-animation: leftShow6 .8s ease-in-out forwards;
+    animation: leftShow6 .8s ease-in-out forwards;
+}
+@-webkit-keyframes leftShow6{
+    0%{
+        -webkit-transform: rotateX(60deg) rotateY(60deg) rotateZ(-30deg) translate3d(-80%, 0, 0px);
+    }
+    100%{
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(-5deg) translate3d(0, 0, 0px);
+    }
 }
 
+.fullpage .section.pl2 > .z-move{
+    position: absolute;
+    top: 40%;
+    width: 35px;
+    height: 54px;
+    background: url(../img/units-icons.png) no-repeat;
+    background-size: 100% 100%;
+
+}
+.fullpage .section.pl2 > .z-move.next{
+    
+}
 

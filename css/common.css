@@ -504,17 +504,6 @@ a:active,a:hover,a:link,a:visited {
         transform: perspective(400px);
     }
 }
-a.next{
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    z-index: 2;
-    background: #e8134d;
-    color: #FFF;
-    padding: 5px 20px;
-    border-radius: 8px;
-    box-shadow: inset 0px 2px 23px 6px rgba(154, 122, 108, 0.5),0px 0px 20px 1px rgba(60, 26, 11, 0.3);
-}
 a.next:hover{
     color: #FFF;
 }

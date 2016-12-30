@@ -27,14 +27,14 @@
 <head>
 <body>
 
-<div class="loading" id="loading">
-    <div class="loading-icon"></div>
+<div class="loading hide" id="loading">
+    <div class="loading-icon">加载中~</div>
 </div>
 
 <div class="music hide" id="music"></div>
 
-<div id="fullpage" class="fullpage hide">
-    <div class="section">
+<div id="fullpage" class="fullpage ">
+    <div class="section pl1">
         <div class="m-animationCloudBg">
             <i></i>
             <i></i>
@@ -49,12 +49,19 @@
             <i></i>
             <i></i>
         </div>
+        <div class="words" id="words"></div>
+        <img src="./img/arrow.png" class="array">
     </div>
-    <div class="section"></div>
-    <div class="section"></div>
-    <div class="section"></div>
-    <div class="section"></div>
-    <div class="section"></div>
+    <div class="section pl2">
+        <img class="animated" data-delay="100" data-show="rightShow" src="img/1.jpg" />
+        <img class="animated" data-delay="1000" data-show="leftShow" src="img/2.jpg" />
+        <img class="animated" data-delay="2000" data-show="rightShow" src="img/3.jpg" />
+        <img class="animated" data-delay="3000" data-show="leftShow" src="img/4.jpg" />
+        <img class="animated" data-delay="4000" data-show="rightShow" src="img/5.jpg" />
+        <img class="animated" data-delay="5000" data-show="leftShow" src="img/6.jpg" />
+        <a href="javascript:void(0);" class="prev z-move"></a>
+        <a href="javascript:void(0);" class="next z-move"></a>
+    </div>
 </div>
 
 <script type="text/javascript" src="js/config.js"></script>

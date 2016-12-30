@@ -1,7 +1,7 @@
 (function($){
     H.index = {
         init: function(){
-            this.loadImg();
+            // this.loadImg();
             this.touch();
             this.swap();
             this.event();
@@ -12,17 +12,12 @@
         },
         event: function(){
             $("#music").bind("touchend", function() {
-                $(this).hasClass("music_close") ?
-                    ($(this).removeClass("music_close"), $("#audio")[0].play()) :
-                    ($(this).addClass("music_close"), $("#audio")[0].pause())
+                $(this).hasClass("music-close") ?
+                    ($(this).removeClass("music-close"), $("#audio")[0].play()) :
+                    ($(this).addClass("music-close"), $("#audio")[0].pause())
             })
         },
         loadImg: function(){
-            $(".loading-icon").typed({
-                strings: ["加载中~"],
-                typeSpeed: 100
-            });
-
             var imgs = [
                 "img/cloud1.png",
                 "img/cloud2.png",
@@ -38,10 +33,18 @@
                 img.src = imgs[i];
                 img.onload = function () {
                     console.log("Image loading complete");
-                    // $("#loading").remove();
-                    $("#music").removeClass("hide");
                 }
             }
+            setTimeout(function(){
+                $("#loading").remove();
+                $("#music").removeClass("hide");
+                $("#fullpage").removeClass("hide");
+                $("#words").typed({
+                    strings: ["你觉得孤独就不对了，说明我给你温暖还不够。<br/>你觉得不被理解就不对了 ，说明我得更耐心的感受你。<br/>你觉得黑暗就不对了，说明我没给你带来光明。<br/>你觉得无助就不对了，说明我对你的好还远远不够。<br/>你觉得迷茫就不对了，说明我还没你明确方向……"],
+                    typeSpeed: 100,
+                    contentType: 'html' // or 'text'
+                });
+            },2000);
         },
         touch: function(){
             var fp =  new AlloyTouch.FullPage("#fullpage",{
