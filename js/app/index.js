@@ -1,85 +1,116 @@
 (function($){
     H.index = {
-        init: function(){
-            // this.loadImg();
-            this.touch();
-            this.swap();
-            this.event();
-        },
-        resize: function(){
-            var winWidth = $(window).width(),
-                winHeight = $(window).height();
-        },
-        event: function(){
-            $("#music").bind("touchend", function() {
-                $(this).hasClass("music-close") ?
-                    ($(this).removeClass("music-close"), $("#audio")[0].play()) :
-                    ($(this).addClass("music-close"), $("#audio")[0].pause())
+        init : function(){
+            var me = this;
+            me.tick(true);
+            me.scrollChalk();
+            $(".news-box").animate({"opacity":1},1000,function(){
+                $("#audio-tip").get(0).play();
             })
         },
-        loadImg: function(){
-            var imgs = [
-                "img/cloud1.png",
-                "img/cloud2.png",
-                "img/cloud3.png",
-                "img/cloud4.png",
-                "img/cloud5.png",
-                "img/cloud6.png",
-                "img/music.png"
-            ];
-            for (var i = 0; i < imgs.length; i++) {//图片预加载
-                var img = new Image();
-                img.style = "display:none";
-                img.src = imgs[i];
-                img.onload = function () {
-                    console.log("Image loading complete");
-                }
+        showLocale : function showLocale(objD, type){
+            var str,colorhead,colorfoot;
+            var yy = objD.getYear();
+            if(yy<1900) yy = yy+1900;
+            var MM = objD.getMonth()+1;
+            if(MM<10) MM = '0' + MM;
+            var dd = objD.getDate();
+            if(dd<10) dd = '0' + dd;
+            var hh = objD.getHours();
+            if(hh<10) hh = '0' + hh;
+            var mm = objD.getMinutes();
+            if(mm<10) mm = '0' + mm;
+            var ss = objD.getSeconds();
+            if(ss<10) ss = '0' + ss;
+            var ww = objD.getDay();
+            if (ww==0) ww="星期日";
+            if (ww==1) ww="星期一";
+            if (ww==2) ww="星期二";
+            if (ww==3) ww="星期三";
+            if (ww==4) ww="星期四";
+            if (ww==5) ww="星期五";
+            if (ww==6) ww="星期六";
+            if(type){
+                str = '<div class="time">' + hh + '<span class="dot">:</span>' + mm + '</div>';
+            }else{
+                str = '<div class="time">' + hh + '<span class="dot"></span>' + mm + '</div><div class="day"><span >'+ MM + '月' + dd + '日' +'</span><span>' + ww +'</span></div>';
             }
-            setTimeout(function(){
-                $("#loading").remove();
-                $("#music").removeClass("hide");
-                $("#fullpage").removeClass("hide");
-                $("#words").typed({
-                    strings: ["你觉得孤独就不对了，说明我给你温暖还不够。<br/>你觉得不被理解就不对了 ，说明我得更耐心的感受你。<br/>你觉得黑暗就不对了，说明我没给你带来光明。<br/>你觉得无助就不对了，说明我对你的好还远远不够。<br/>你觉得迷茫就不对了，说明我还没你明确方向……"],
-                    typeSpeed: 100,
-                    contentType: 'html' // or 'text'
-                });
-            },2000);
-        },
-        touch: function(){
-            var fp =  new AlloyTouch.FullPage("#fullpage",{
-                animationEnd:function () {
 
-                },
-                leavePage: function (index) {
-                    console.log("leave"+index)
-                },
-                beginToPage: function (index) {
-                    console.log("to"+index);
+            return(str);
+        },
+        tick : function (type){
+            var today;
+            today = new Date();
+            if(type){
+                document.getElementById("localtime").innerHTML = H.index.showLocale(today, false);
+            }else {
+                document.getElementById("dia-time").innerHTML = H.index.showLocale(today, true);
+            }
+
+            window.setTimeout(function(){
+                H.index.tick()
+            }, 1000);
+        } ,
+        scrollChalk : function() {
+            this.touchEvent($("#ad-box")[0],$("#ad-box"));
+            this.touchEvent($(".lock")[0],$(".slide"));
+            $(".dia-share").tap(function(e){
+                e.preventDefault();
+                shownewLoading();
+                window.location.href = "photo.html";
+            });
+        },
+        touchEvent : function(el,$target){
+            var startPosition, endPosition, deltaX, deltaY, moveLength;
+            var clientWidth = $(window).width();
+            el.addEventListener('touchstart', function (e) {
+                e.preventDefault();
+                var touch = e.touches[0];
+                startPosition = {
+                    x: touch.pageX,
+                    y: touch.pageY
                 }
             });
-
-
-        },
-        swap: function(){
-            var array1 = [1, 5, 0, 7, 3, 2, 6],
-                middleValue = null;
-            console.log("原值array1="+array1);
-            for(var i = 0,len = array1.length; i < len; i++){
-                for(var j = i+1; j < len; j++){
-                    if(array1[i] < array1[j]){
-                        middleValue = array1[i];
-                        array1[i] = array1[j];
-                        array1[j] = middleValue;
-                    }
+            el.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+                var touch = e.touches[0];
+                endPosition = {
+                    x: touch.pageX,
+                    y: touch.pageY
+                }
+                deltaX = endPosition.x-startPosition.x;
+                deltaY = endPosition.y -startPosition.y;
+                if(deltaX>0){
+                    $target.css({
+                        '-webkit-transform': 'translateX('+deltaX+'px)',
+                        '-webkit-transition': '-webkit-transform 0s'
+                    })
+                }else{
+                    $target.css({
+                        '-webkit-transform': 'translateX(0)',
+                        '-webkit-transition': '-webkit-transform 0s'
+                    })
                 }
 
-            };
-            console.log("排序array1="+array1);
+            });
+            el.addEventListener('touchend', function (e) {
+                e.preventDefault();
+                if (endPosition.x > clientWidth*0.8) {
+                    $target.css({'-webkit-transform' :'translateX('+ clientWidth+20+'px)',
+                        '-webkit-transition': '-webkit-transform .5s ease'
+                    });
+                    $("#ad-box").addClass("hide");
+                    $("#main").removeClass("hide");
+                    H.index.tick(false);
+                }else{
+                    $target.css({'-webkit-transform' : 'translateX(0px)',
+                        '-webkit-transition': '-webkit-transform .5s ease'
+                    });
+                }
+            });
         }
-    };
+    }
 })(Zepto);
-
-$(function(){
+$(function() {
     H.index.init();
 });

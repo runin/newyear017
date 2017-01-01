@@ -11,64 +11,60 @@
     <link rel="stylesheet" href="css/index.css" />
     <meta name="viewport" content="target-densitydpi=device-dpi, width=640px, user-scalable=no">
     <script type="text/javascript">
-            var DEFAULT_WIDTH = 640, // 页面的默认宽度
-                    ua = navigator.userAgent.toLowerCase(), // 根据 user agent 的信息获取浏览器信息
-                    deviceWidth = window.screen.width, // 设备的宽度
-                    devicePixelRatio = window.devicePixelRatio || 1, // 物理像素和设备独立像素的比例，默认为1
-                    targetDensitydpi;
+        var DEFAULT_WIDTH = 640, // 页面的默认宽度
+                ua = navigator.userAgent.toLowerCase(), // 根据 user agent 的信息获取浏览器信息
+                deviceWidth = window.screen.width, // 设备的宽度
+                devicePixelRatio = window.devicePixelRatio || 1, // 物理像素和设备独立像素的比例，默认为1
+                targetDensitydpi;
 
-            // Android4.0以下手机不支持viewport的width，需要设置target-densitydpi
-            if (ua.indexOf("android") !== -1 && parseFloat(ua.slice(ua.indexOf("android")+8)) < 4) {
-                targetDensitydpi = DEFAULT_WIDTH / deviceWidth * devicePixelRatio * 160;
-                $('meta[name="viewport"]').attr('content', 'target-densitydpi=' + targetDensitydpi +
-                        ', width=device-width, user-scalable=no');
-            }
+        // Android4.0以下手机不支持viewport的width，需要设置target-densitydpi
+        if (ua.indexOf("android") !== -1 && parseFloat(ua.slice(ua.indexOf("android")+8)) < 4) {
+            targetDensitydpi = DEFAULT_WIDTH / deviceWidth * devicePixelRatio * 160;
+            $('meta[name="viewport"]').attr('content', 'target-densitydpi=' + targetDensitydpi +
+                    ', width=device-width, user-scalable=no');
+        }
     </script>
 <head>
 <body>
 
-<div class="loading hide" id="loading">
-    <div class="loading-icon">加载中~</div>
-</div>
-
-<div class="music hide" id="music"></div>
-
-<div id="fullpage" class="fullpage ">
-    <div class="section pl1">
-        <div class="m-animationCloudBg">
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
+<section class="ad-box" id="ad-box">
+    <div class="slide">
+        <div id="localtime" class="localtime"></div>
+        <div class="news-box">
+            <div class="news">
+                <div class="news-head"><img src="img/news-title.png" /><span>2分钟前</span></div>
+                <p>一路向北给你发来一条微信</p>
+            </div>
         </div>
-        <div class="words" id="words"></div>
-        <img src="./img/arrow.png" class="array">
+        <div class="lock">
+            <span><i class="iconfont">&#xe751;</i>滑动来解锁</span>
+        </div>
+        <img class="bottom-icon" src="img/bottom-icon.png" />
+        <div class="copyright"></div>
     </div>
-    <div class="section pl2">
-        <img class="animated" data-delay="100" data-show="rightShow" src="img/1.jpg" />
-        <img class="animated" data-delay="1000" data-show="leftShow" src="img/2.jpg" />
-        <img class="animated" data-delay="2000" data-show="rightShow" src="img/3.jpg" />
-        <img class="animated" data-delay="3000" data-show="leftShow" src="img/4.jpg" />
-        <img class="animated" data-delay="4000" data-show="rightShow" src="img/5.jpg" />
-        <img class="animated" data-delay="5000" data-show="leftShow" src="img/6.jpg" />
-        <a href="javascript:void(0);" class="prev z-move"></a>
-        <a href="javascript:void(0);" class="next z-move"></a>
-    </div>
-</div>
+</section>
 
+<section class="main hide" id="main">
+    <div class="dia-box">
+        <div id="dia-time"></div>
+        <div class="dia-laywer dia1"><div class="dia-word dialog">鸡年要干嘛，闻鸡起舞呗！囍</div></div>
+        <div class="dia-laywer dia2"><div class="dia-word dialog">喔喔喔，公鸡打鸣送祝福！</div></div>
+        <div class="dia-laywer dia3"><img src="img/j1.gif" /></div>
+        <div class="dia-laywer dia4">
+            <div class="dia-share dialog">
+                <h1>【说好的幸福，然而？】</h1>
+                <p>整整一年未睡，看看“^(*￣(oo)￣)^”都在搞......</p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar"> <img  src="img/bottom-icon.jpg" /></div>
+</section>
 <script type="text/javascript" src="js/config.js"></script>
 <script type="text/javascript" src="js/plugins/zepto.min.js"></script>
 <script type="text/javascript" src="js/plugins/common.js"></script>
 
 <script type="text/javascript" src="js/app/index.js"></script>
-<audio src="http://file.ws.126.net/f2e/ent/ent_painting2016/files/sjsznh.mp3" autoplay="autoplay" loop="loop" id="audio"></audio>
+<audio preload="auto" id="audio-tip" src="img/news-tip.mp3"></audio>
 </body>
 </html>
+        

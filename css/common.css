@@ -380,16 +380,15 @@ a:active,a:hover,a:link,a:visited {
 }
 
 .copyright {
-    z-index: 0;
-    color: #FFF;
-    font-size: 12px;
-    line-height: 13px;
+    position: absolute;
+    bottom: 10px;
+    color: #bf4040;
+    font-size: 24px;
     margin-bottom: 3px;
     text-align: center;
     clear: both;
     width: 100%;
-    opacity: .8;
-    -webkit-transform: scale(.9)
+    z-index: 999;
 }
 #orient-box {
     display: none

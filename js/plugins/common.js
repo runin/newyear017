@@ -95,3 +95,7 @@ var hidenewLoading = function($container) {
         $('body').children('#qy_loading').remove();
     };
 };
+
+/*
+var copyright = "页面由【一路向北】友情提供";
+$(".copyright").text(copyright);*/
