@@ -73,7 +73,7 @@ var shownewLoading = function($container, tips) {
         height = $(window).height(),
         $container = $container || $('body'),
         $loading = $container ? $container.find('#qy_loading') : $('body').children('#qy_loading'),
-        tips = tips || '24张图加载中...';
+        tips = tips || '小鸡起床中~~';
 
     if ($loading.length > 0) {
         $loading.remove();

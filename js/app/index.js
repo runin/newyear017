@@ -56,7 +56,7 @@
             this.touchEvent($(".lock")[0],$(".slide"));
             $(".dia-share").tap(function(e){
                 e.preventDefault();
-                shownewLoading("小鸡起床中~~");
+                shownewLoading();
                 window.location.href = "photo.html";
             });
         },
