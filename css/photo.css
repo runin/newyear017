@@ -266,21 +266,20 @@ html, body {
 .fullpage .section.pl1 > .words{
     position: absolute;
     left: 0;
+    right: 0;
     top: 150px;
-    width: 80%;
+    width: 70%;
     margin: auto;
     font-size: 30px;
     line-height: 65px;
     color: rgba(214, 86, 64, 0.78);
-    writing-mode: tb-rl;
+    /* writing-mode: tb-rl; */
     letter-spacing: 4px;
     /* font-family: "AOVELSANS"; */
     text-shadow: 2px 9px 14px #ded3d3;
     font-style: oblique;
-    /* -webkit-transform: rotate(90deg); */
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    white-space: nowrap;
+    -webkit-transform: rotatez(13deg);
+    /* white-space: nowrap; */
     display: block;
 
 }
