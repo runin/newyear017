@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="css/photo.css" />
     <meta name="viewport" content="target-densitydpi=device-dpi, width=640px, user-scalable=no">
     <script type="text/javascript">
-            var DEFAULT_WIDTH = 640, // 页面的默认宽度
-                    ua = navigator.userAgent.toLowerCase(), // 根据 user agent 的信息获取浏览器信息
-                    deviceWidth = window.screen.width, // 设备的宽度
-                    devicePixelRatio = window.devicePixelRatio || 1, // 物理像素和设备独立像素的比例，默认为1
-                    targetDensitydpi;
+        var DEFAULT_WIDTH = 640, // 页面的默认宽度
+                ua = navigator.userAgent.toLowerCase(), // 根据 user agent 的信息获取浏览器信息
+                deviceWidth = window.screen.width, // 设备的宽度
+                devicePixelRatio = window.devicePixelRatio || 1, // 物理像素和设备独立像素的比例，默认为1
+                targetDensitydpi;
 
-            // Android4.0以下手机不支持viewport的width，需要设置target-densitydpi
-            if (ua.indexOf("android") !== -1 && parseFloat(ua.slice(ua.indexOf("android")+8)) < 4) {
-                targetDensitydpi = DEFAULT_WIDTH / deviceWidth * devicePixelRatio * 160;
-                $('meta[name="viewport"]').attr('content', 'target-densitydpi=' + targetDensitydpi +
-                        ', width=device-width, user-scalable=no');
-            }
+        // Android4.0以下手机不支持viewport的width，需要设置target-densitydpi
+        if (ua.indexOf("android") !== -1 && parseFloat(ua.slice(ua.indexOf("android")+8)) < 4) {
+            targetDensitydpi = DEFAULT_WIDTH / deviceWidth * devicePixelRatio * 160;
+            $('meta[name="viewport"]').attr('content', 'target-densitydpi=' + targetDensitydpi +
+                    ', width=device-width, user-scalable=no');
+        }
     </script>
-<head>
+</head>
 <body class="no-scroll">
 
 <div class="loading" id="loading">
@@ -40,14 +40,14 @@
             <i></i>
             <i></i>
             <i></i>
-           <!-- <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>-->
+            <!-- <i></i>
+             <i></i>
+             <i></i>
+             <i></i>
+             <i></i>
+             <i></i>
+             <i></i>
+             <i></i>-->
         </div>
         <div class="words" id="words"></div>
 
@@ -84,16 +84,18 @@
             </div>
             <div class="copyright"></div>
         </main>
-
     </div>
 </div>
 
-<script type="text/javascript" src="js/config.js"></script>
 <script type="text/javascript" src="js/plugins/zepto.min.js"></script>
 <script type="text/javascript" src="js/plugins/Shape.js"></script>
 <script type="text/javascript" src="js/plugins/common.js"></script>
+<script type="text/javascript" src="js/plugins/transform.min.js"></script>
+<script type="text/javascript" src="js/plugins/alloy_touch.js"></script>
+<script type="text/javascript" src="js/plugins/alloy_touch.full_page.js"></script>
+<script type="text/javascript" src="js/plugins/typed.js"></script>
 
-<script type="text/javascript" src="js/app/photo.js"></script>
+<script src="js/app/photo.js"></script>
 <audio src="http://file.ws.126.net/f2e/ent/ent_painting2016/files/sjsznh.mp3" autoplay="autoplay" loop="loop" id="audio"></audio>
 </body>
 </html>
