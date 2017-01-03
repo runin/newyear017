@@ -57,7 +57,7 @@
             $(".dia-share").tap(function(e){
                 e.preventDefault();
                 shownewLoading();
-                window.location.href = "index.html";
+                window.location.href = "photo.html";
             });
         },
         touchEvent : function(el,$target){
