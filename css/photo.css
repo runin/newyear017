@@ -7,6 +7,10 @@ html, body {
     background: -webkit-linear-gradient(top,  #32a4da 0%,#b4e1da 99%);
     background: linear-gradient(to bottom,  #32a4da 0%,#b4e1da 99%);
 }
+.no-scroll{
+    height: 100%;
+    overflow: hidden;
+}
 .loading{
     position: absolute;
     width: 100%;

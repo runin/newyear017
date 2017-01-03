@@ -61,6 +61,7 @@
                 $("#loading").remove();
                 $("#music").removeClass("hide");
                 $("#fullpage").removeClass("hide");
+                $("body").removeClass("no-scroll");
                 S.init();
             },2000);
         },
